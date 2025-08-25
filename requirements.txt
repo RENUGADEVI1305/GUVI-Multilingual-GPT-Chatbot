@@ -1,0 +1,10 @@
+transformers
+torch
+sentence-transformers
+langchain
+langchain-community
+faiss-cpu
+langdetect
+deep-translator
+streamlit
+pyngrok
