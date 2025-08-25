@@ -8,6 +8,7 @@ It supports English, Tamil, Hindi, Telugu, Kannada with auto-detection of langua
 Build a multilingual chatbot that uses a pre-trained or fine-tuned GPT model to answer user queries. If the user’s input is in a non-English language, the chatbot should translate the input to English using some translator model, get a response from the GPT model, and then translate the response back to the original language.
 
 ## 🚀 Features
+
 Multilingual Support: Auto-detect and translate between English, Tamil, Hindi, Telugu, and Kannada.
 
 RAG-based Answering: Uses FAISS vector search + FLAN-T5 for concise, factual answers.
@@ -21,6 +22,7 @@ Interactive UI: Built with Streamlit, with clear chat and language options.
 Ngrok Integration: Run on Colab or local machine with a public link.
 
 ## 📂 Project Structure
+
 ├── app.py # Streamlit app (UI + chatbot) 
 
 ├── multilingual_utils.py # Language detection + translation
@@ -33,7 +35,8 @@ Ngrok Integration: Run on Colab or local machine with a public link.
 
 └── README.md # Documentation
 
-🧠 How it Works 
+## 🧠 How it Works 
+
 User Input → Language detected (langdetect). 
 
 Translate to English → Using Deep Translator. 
@@ -46,7 +49,8 @@ Translate Back → Response shown in user’s input language.
 
 Display in Streamlit → Chat history maintained.
 
-🛠️ Tech Stack 
+## 🛠️ Tech Stack 
+
 Streamlit → UI & chatbot interface 
 
 LangChain → RAG pipeline orchestration 
