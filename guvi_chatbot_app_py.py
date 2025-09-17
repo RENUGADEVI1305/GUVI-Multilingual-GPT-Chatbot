@@ -11,7 +11,6 @@ Original file is located at
 
 !pip install transformers
 !pip install torch
-!pip install sentence-transformers
 !pip install langchain
 !pip install langchain-community
 !pip install faiss-cpu
