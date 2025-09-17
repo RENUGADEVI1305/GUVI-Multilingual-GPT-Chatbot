@@ -1,49 +1,35 @@
-
 import streamlit as st
 import base64
 from multilingual_utils import detect_language, translate_to_english, translate_from_english
 from retriever import generate_answer
-# ---------------------------
-# Knowledge Base
-# ---------------------------
-knowledge_base = {
-    "does guvi provide certificates?": "Yes, GUVI provides verifiable certificates for completed courses.",
-    "does guvi provide placement support?": "Yes, GUVI offers placement support through Zen Class and career services.",
-    "where can i find the courses?": "You can explore courses directly on GUVI’s official website.",
-    "tell me about guvi?": "GUVI is an online learning platform offering courses in Data Science, AI, Full Stack, and more."
-}
-
-# ---------------------------
-# Fallback Response Function
-# ---------------------------
-def get_response(user_query, knowledge_base):
-    response = knowledge_base.get(user_query.lower())
-    if response:
-        return response
-    else:
-        return """I'm sorry, I don’t have an exact answer for that. 
-        But I can help you with GUVI courses, certifications, and placement support. 
-        You may explore GUVI’s official site for more options."""
 
 # ---------------------------
 # Page Config
 # ---------------------------
 st.set_page_config(page_title="GUVI Multilingual GPT Chatbot", page_icon="🌍")
 
-# Load and encode GUVI logo
-with open("/content/guvilogo.png", "rb") as f:
-    encoded = base64.b64encode(f.read()).decode()
+# Load and encode GUVI logo (safe fallback if not present)
+encoded = None
+try:
+    with open("/content/guvilogo.png", "rb") as f:
+        encoded = base64.b64encode(f.read()).decode()
+except FileNotFoundError:
+    # Logo missing — that's fine, we'll just skip it
+    encoded = None
 
 # Center logo + Title
-st.markdown(
-    f"""
-    <div style="text-align: center;">
-        <img src="data:image/png;base64,{encoded}" width="250"><br>
-        <h1>GUVI Multilingual GPT Chatbot</h1>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+if encoded:
+    st.markdown(
+        f"""
+        <div style="text-align: center;">
+            <img src="data:image/png;base64,{encoded}" width="250"><br>
+            <h1>GUVI Multilingual GPT Chatbot</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.title("GUVI Multilingual GPT Chatbot")
 
 st.write("Talk to a multilingual chatbot powered by RAG + LLMs")
 
@@ -54,7 +40,6 @@ if "history" not in st.session_state:
 # ---------------------------
 # Layout: Row-wise Input + Language
 # ---------------------------
-# Input row with Clear Chat button on right
 col1, col2 = st.columns([4,1])
 
 with col1:
@@ -74,6 +59,7 @@ lang_option = st.radio(
     index=0,
     horizontal=True
 )
+
 # ---------------------------
 # Handle message
 # ---------------------------
@@ -93,16 +79,23 @@ if user_input.strip():
     st.info(query_en)
 
     # Step 3: Generate answer using RAG retriever
-    response_en = generate_answer(query_en)
+    try:
+        response_en = generate_answer(query_en)
+    except Exception as e:
+        # If the retriever/LLM errors out, set response_en empty so fallback runs
+        response_en = ""
 
-    # Step 4: Fallback if retriever fails
+    # Step 4: Fallback if retriever returns nothing
     if response_en and response_en.strip():
         bot_response = response_en
     else:
-        bot_response = get_response(query_en, knowledge_base)
+        # Single default fallback message (in English) when retriever can't answer
+        bot_response = ("I'm sorry, I don’t have an exact answer for that right now. "
+                        "I can help with GUVI courses, certifications, and placement support. "
+                        "Please try rephrasing or check GUVI's official site for more details.")
 
     # Step 5: Translate back if input wasn’t English
-    final_response = translate_from_english(bot_response, lang) if lang != 'en' else response_en
+    final_response = translate_from_english(bot_response, lang) if lang != 'en' else bot_response
 
     # Step 6: Save conversation
     st.session_state.history.append(("You", user_input))
@@ -117,4 +110,3 @@ for speaker, msg in st.session_state.history:
         st.markdown(f"**👤 {speaker}:** {msg}")
     else:
         st.markdown(f"**🤖 {speaker}:** {msg}")
-
