@@ -282,7 +282,7 @@ Can I get a job after completing GUVI Zen Class? Yes, if you complete the progra
 
 What kind of projects will I work on in GUVI? Projects include web applications, data science models, AI tools, and real-world coding challenges.
 
-Does GUVI provide one-on-one mentorship? Yes, Zen Class offers one-on-one mentorship sessions with industry experts.
+Does GUVI provide one on one mentorship? Yes, Zen Class offers one-on-one mentorship sessions with industry experts.
 
 Are GUVI programs self-paced or live? GUVI offers both self-paced video courses and live mentor-led programs (Zen Class).
 
@@ -1215,8 +1215,29 @@ Does GUVI provide women-only programs? Yes, GUVI offers women empowerment learni
  
 Does GUVI provide global student community? Yes, GUVI learners come from over 100+ countries.  
 
+What is the minimum age required to register on GUVI? 13 years old. You must be at least 13 to sign up according to their Terms of Service. 
+
+Is this 13-year minimum for all GUVI courses or only some types (free vs paid)? The Terms of Service state “using the GUVI service,” which implies all services, free or paid, require minimum age 13. But for specific paid courses or mentorships, there may be additional eligibility criteria.
+
+Can someone under 13 use GUVI with parental consent? GUVI’s terms do not explicitly mention parental consent as an exception. They state The service is not available to persons under the age of thirteen (13).
+
+Are there any courses or products aimed at younger children (K-12 or kids)? Yes, GUVI has a product “HackerKID” which is for K-12 / younger learners. But even in these, the terms say that the GUVI service account usage requires the user to be ≥13. 
+
+You might need to check if HackerKID has separate age rules.
+What happens if someone under 13 tries to create an account? According to the policy, GUVI may refuse registration or cancel any account by persons under 13.
+
+Is there a maximum age limit to join GUVI courses? No, GUVI does not list a maximum age limit. Their public messaging says Learners of GUVI have no Age limit!
+
+Is this “no maximum age” valid for all GUVI products (free, paid, kids programs)? Yes, generally for most GUVI offerings. However, some specific programs like HackerKid are designed for certain age ranges (e.g. ages 7-17) for kids-oriented content. 
+
+Can someone older than typical student age (for example a retiree) also join? Yes, as per official GUVI statements, anyone with passion and interest can join. There is no upper age cap mentioned. 
+
+Are there any special conditions for older learners?  Not explicitly. The main restriction in GUVI’s Terms of Service is minimum age (13) and being legally capable of forming a contract. There are no statements about upper age limits or age-based restrictions beyond that. 
+
+What should I check if I am older and want to enroll?	It’s good to check: (a) whether the course content is suitable for your prior knowledge, (b) whether live mentoring or class schedules work for your availability, (c) whether there are any discounts or packages; (d) whether terms of service require anything else besides minimum age.
 
 I'm not able to log in. Please help? Please refresh your browser (CTRL + SHIFT + R for Windows, CMD + SHIFT + R for Mac) and try again. Also, consider trying a different browser. For further Queries, Drop a mail to info@guvi.in
+
 
 How does GUVI’s Zero-Cost Hiring process work? GUVI connects companies with pre-vetted, job-ready candidates from its talent pool. Simply fill out the Hire Now form, and we’ll curate a list of candidates that match your hiring needs at no cost.
 
